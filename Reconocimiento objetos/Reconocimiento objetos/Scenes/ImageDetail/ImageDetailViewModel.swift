@@ -33,13 +33,13 @@ class ImageDetailViewModel {
     
     weak var coordinateDelegate: ImageDetailCoordinatorDelegate?
     weak var viewDelegate: ImageDetailViewDelegate?
-    let imageNamed: String
+    let imageData: Data
     let model = try? YOLO(configuration: MLModelConfiguration())
     
     private var requests = [VNRequest]()
     
-    init(imageNamed: String) {
-        self.imageNamed = imageNamed
+    init(imageData: Data) {
+        self.imageData = imageData
         guard let model = model?.model,
               let visionModel = try? VNCoreMLModel(for: model) else {fatalError()}
         
@@ -50,7 +50,7 @@ class ImageDetailViewModel {
     
  
     func predict() {
-        guard let pixelBuffer = UIImage(named: imageNamed)?.resize().pixelBuffer else {return}
+        guard let pixelBuffer = UIImage(data: imageData)?.resize().pixelBuffer else {return}
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:])
         
         do {

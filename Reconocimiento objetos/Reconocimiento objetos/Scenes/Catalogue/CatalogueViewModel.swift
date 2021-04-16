@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CatalogueCoordinatorDelegate: class {
-    func didSelect(imageNamed: String)
+    func didSelect(imageData: Data)
 }
 
 protocol CatalogueViewDelegate: class {
@@ -19,15 +19,32 @@ class CatalogueViewModel {
     weak var coordinateDelegate: CatalogueCoordinatorDelegate?
     weak var viewDelegate: CatalogueViewDelegate?
     var catalogueCellViewModels: [CatalogueCellViewModel] = []
+    let catalogueDataManager: CatalogueDataManager
     
+    init(catalogueDataManager: CatalogueDataManager) {
+        self.catalogueDataManager = catalogueDataManager
+    }
+    
+    
+    private func fetchListOfImages() {
+        self.catalogueDataManager.fetchListOfImages(amountOfImages: 100) { [weak self] result in
+            switch result {
+                case .success(let response):
+                    guard let listOfImages = response else {return}
+                    self?.catalogueCellViewModels = listOfImages.map({
+                        CatalogueCellViewModel(imageURL: $0.downloadURL ?? "", catalogueDataManager: self?.catalogueDataManager)
+                    })
+                    self?.viewDelegate?.imagesLoaded()
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
     
     func viewWasLoaded() {
-        for index in 17 ..< 119 {
-            catalogueCellViewModels.append(CatalogueCellViewModel(imageName: String(format: "testImage_%i", index)))
-        }
-        viewDelegate?.imagesLoaded()
+        fetchListOfImages()
     }
-
+    
     func numberOfSections() -> Int {
         return 1
     }
@@ -42,6 +59,7 @@ class CatalogueViewModel {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        coordinateDelegate?.didSelect(imageNamed: catalogueCellViewModels[indexPath.row].imageName)
+        guard let imageData = catalogueCellViewModels[indexPath.row].imageData else {return}
+        coordinateDelegate?.didSelect(imageData: imageData)
     }
 }

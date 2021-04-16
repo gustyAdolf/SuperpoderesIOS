@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4BA95F7262973730021FE42 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA95F6262973730021FE42 /* BoundingBox.swift */; };
 		C4BA95FC26297A3C0021FE42 /* YOLO.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C4BA95FB26297A3C0021FE42 /* YOLO.mlmodel */; };
+		C4BA9612262A06FE0021FE42 /* ClientDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9611262A06FE0021FE42 /* ClientDataManager.swift */; };
+		C4BA9616262A071F0021FE42 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9615262A071F0021FE42 /* APIRequest.swift */; };
+		C4BA961A262A073E0021FE42 /* SessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9619262A073E0021FE42 /* SessionAPI.swift */; };
+		C4BA9620262A08340021FE42 /* ListOfImagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA961F262A08340021FE42 /* ListOfImagesRequest.swift */; };
+		C4BA9624262A08690021FE42 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9623262A08690021FE42 /* ImageItem.swift */; };
+		C4BA962A262A0A920021FE42 /* CatalogueDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9629262A0A920021FE42 /* CatalogueDataManager.swift */; };
+		C4BA962E262A0D280021FE42 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA962D262A0D280021FE42 /* ImageRequest.swift */; };
+		C4BA9632262A119D0021FE42 /* RemoteDataManagerIml.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9631262A119D0021FE42 /* RemoteDataManagerIml.swift */; };
+		C4BA9636262A11D60021FE42 /* RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BA9635262A11D60021FE42 /* RemoteDataManager.swift */; };
 		C4CC7BEE262813D500B75C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC7BED262813D500B75C4C /* AppDelegate.swift */; };
 		C4CC7BF0262813D500B75C4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC7BEF262813D500B75C4C /* SceneDelegate.swift */; };
 		C4CC7BF7262813D600B75C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CC7BF6262813D600B75C4C /* Assets.xcassets */; };
@@ -29,8 +37,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C4BA95F6262973730021FE42 /* BoundingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		C4BA95FB26297A3C0021FE42 /* YOLO.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLO.mlmodel; sourceTree = "<group>"; };
+		C4BA9611262A06FE0021FE42 /* ClientDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDataManager.swift; sourceTree = "<group>"; };
+		C4BA9615262A071F0021FE42 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		C4BA9619262A073E0021FE42 /* SessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAPI.swift; sourceTree = "<group>"; };
+		C4BA961F262A08340021FE42 /* ListOfImagesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfImagesRequest.swift; sourceTree = "<group>"; };
+		C4BA9623262A08690021FE42 /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
+		C4BA9629262A0A920021FE42 /* CatalogueDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueDataManager.swift; sourceTree = "<group>"; };
+		C4BA962D262A0D280021FE42 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		C4BA9631262A119D0021FE42 /* RemoteDataManagerIml.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManagerIml.swift; sourceTree = "<group>"; };
+		C4BA9635262A11D60021FE42 /* RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManager.swift; sourceTree = "<group>"; };
 		C4CC7BEA262813D500B75C4C /* Reconocimiento objetos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reconocimiento objetos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CC7BED262813D500B75C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CC7BEF262813D500B75C4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,11 +79,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C4BA96092629BEE60021FE42 /* Model */ = {
+		C4BA96092629BEE60021FE42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4BA961E262A08190021FE42 /* Responses */,
+				C4BA961D262A08030021FE42 /* Requests */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4BA9610262A06E40021FE42 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				C4BA9614262A07070021FE42 /* Remote */,
+				C4BA9611262A06FE0021FE42 /* ClientDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		C4BA9614262A07070021FE42 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				C4BA9615262A071F0021FE42 /* APIRequest.swift */,
+				C4BA9619262A073E0021FE42 /* SessionAPI.swift */,
+				C4BA9631262A119D0021FE42 /* RemoteDataManagerIml.swift */,
+				C4BA9635262A11D60021FE42 /* RemoteDataManager.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		C4BA961D262A08030021FE42 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				C4BA961F262A08340021FE42 /* ListOfImagesRequest.swift */,
+				C4BA962D262A0D280021FE42 /* ImageRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		C4BA961E262A08190021FE42 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				C4BA9623262A08690021FE42 /* ImageItem.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		C4CC7BE1262813D500B75C4C = {
@@ -89,7 +144,8 @@
 		C4CC7BEC262813D500B75C4C /* Reconocimiento objetos */ = {
 			isa = PBXGroup;
 			children = (
-				C4BA96092629BEE60021FE42 /* Model */,
+				C4BA9610262A06E40021FE42 /* DataManager */,
+				C4BA96092629BEE60021FE42 /* Models */,
 				C4CC7C382628B3F100B75C4C /* Extensions */,
 				C4CC7C0B2628144400B75C4C /* Resources */,
 				C4CC7C03262813F800B75C4C /* Scenes */,
@@ -139,6 +195,7 @@
 				C4CC7C132628151000B75C4C /* CatalogueViewModel.swift */,
 				C4CC7C2D26282B1900B75C4C /* CatalogueCell.swift */,
 				C4CC7C3026282B2900B75C4C /* CatalogueCellViewModel.swift */,
+				C4BA9629262A0A920021FE42 /* CatalogueDataManager.swift */,
 			);
 			path = Catalogue;
 			sourceTree = "<group>";
@@ -157,7 +214,6 @@
 			children = (
 				C4CC7C1F262817E400B75C4C /* ImageDetailViewController.swift */,
 				C4CC7C24262817F600B75C4C /* ImageDetailViewModel.swift */,
-				C4BA95F6262973730021FE42 /* BoundingBox.swift */,
 			);
 			path = ImageDetail;
 			sourceTree = "<group>";
@@ -240,19 +296,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4BA95FC26297A3C0021FE42 /* YOLO.mlmodel in Sources */,
+				C4BA962E262A0D280021FE42 /* ImageRequest.swift in Sources */,
 				C4CC7C142628151000B75C4C /* CatalogueViewModel.swift in Sources */,
 				C4CC7C182628152B00B75C4C /* SearchViewController.swift in Sources */,
 				C4CC7C1C2628153600B75C4C /* SearchViewModel.swift in Sources */,
 				C4CC7C052628142D00B75C4C /* Coordinator.swift in Sources */,
-				C4BA95F7262973730021FE42 /* BoundingBox.swift in Sources */,
+				C4BA9620262A08340021FE42 /* ListOfImagesRequest.swift in Sources */,
+				C4BA9632262A119D0021FE42 /* RemoteDataManagerIml.swift in Sources */,
+				C4BA9616262A071F0021FE42 /* APIRequest.swift in Sources */,
+				C4BA9612262A06FE0021FE42 /* ClientDataManager.swift in Sources */,
 				C4CC7C3126282B2900B75C4C /* CatalogueCellViewModel.swift in Sources */,
 				C4CC7C2B2628226F00B75C4C /* SearchCoordinator.swift in Sources */,
 				C4CC7C092628143E00B75C4C /* AppCoordinator.swift in Sources */,
 				C4CC7C282628188900B75C4C /* CatalogueCoordinator.swift in Sources */,
+				C4BA9636262A11D60021FE42 /* RemoteDataManager.swift in Sources */,
 				C4CC7C25262817F600B75C4C /* ImageDetailViewModel.swift in Sources */,
+				C4BA961A262A073E0021FE42 /* SessionAPI.swift in Sources */,
+				C4BA9624262A08690021FE42 /* ImageItem.swift in Sources */,
 				C4CC7BEE262813D500B75C4C /* AppDelegate.swift in Sources */,
 				C4CC7C2E26282B1900B75C4C /* CatalogueCell.swift in Sources */,
 				C4CC7C0F262814F900B75C4C /* CatalogueViewController.swift in Sources */,
+				C4BA962A262A0A920021FE42 /* CatalogueDataManager.swift in Sources */,
 				C4CC7C3A2628B40900B75C4C /* UIImage+Resize.swift in Sources */,
 				C4CC7C20262817E400B75C4C /* ImageDetailViewController.swift in Sources */,
 				C4CC7BF0262813D500B75C4C /* SceneDelegate.swift in Sources */,

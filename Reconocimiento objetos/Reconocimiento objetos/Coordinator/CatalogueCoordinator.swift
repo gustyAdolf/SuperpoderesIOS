@@ -9,13 +9,15 @@ import UIKit
 
 class CatalogueCoordinator: Coordinator {
     let presenter: UINavigationController
+    let catalogueDataManager: CatalogueDataManager
     
-    init(presenter: UINavigationController) {
+    init(presenter: UINavigationController, catalogueDataManager: CatalogueDataManager) {
         self.presenter = presenter
+        self.catalogueDataManager = catalogueDataManager
     }
     
     override func start() {
-        let catalogueViewModel = CatalogueViewModel()
+        let catalogueViewModel = CatalogueViewModel(catalogueDataManager: self.catalogueDataManager)
         let catalogueViewController = CatalogueViewController(viewModel: catalogueViewModel)
         catalogueViewModel.viewDelegate = catalogueViewController
         catalogueViewModel.coordinateDelegate = self
@@ -28,8 +30,8 @@ class CatalogueCoordinator: Coordinator {
 }
 
 extension CatalogueCoordinator: CatalogueCoordinatorDelegate {
-    func didSelect(imageNamed: String) {
-        let imageDetailViewModel = ImageDetailViewModel(imageNamed: imageNamed)
+    func didSelect(imageData: Data) {
+        let imageDetailViewModel = ImageDetailViewModel(imageData: imageData)
         let imageDetailViewController = ImageDetailViewController(viewModel: imageDetailViewModel)
         imageDetailViewModel.viewDelegate = imageDetailViewController
         imageDetailViewModel.coordinateDelegate = self

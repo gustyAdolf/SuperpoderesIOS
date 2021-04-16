@@ -13,7 +13,9 @@ class CatalogueCell: UICollectionViewCell {
         didSet {
             guard let viewModel = viewModel else {return}
             viewModel.viewDelegate = self
-            imageView.image = UIImage(named: viewModel.imageName)
+            if let imageData = viewModel.imageData {
+                imageView.image = UIImage(data: imageData)
+            }
         }
     }
     
@@ -46,5 +48,9 @@ class CatalogueCell: UICollectionViewCell {
 }
 
 extension CatalogueCell: CatalogueCellViewDelegate {
+    func imageFetched(imageData: Data) {
+        self.imageView.image = UIImage(data: imageData)
+    }
+    
     
 }

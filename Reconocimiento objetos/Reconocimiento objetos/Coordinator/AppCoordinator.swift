@@ -9,6 +9,13 @@ import UIKit
 
 class AppCoordinator: Coordinator {
 
+    let sessionAPI = SessionAPI()
+    
+    lazy var dataManager: ClientDataManager = {
+        let dataManager = ClientDataManager(remoteDataManager: RemoteDataManagerIml(session: sessionAPI))
+        return dataManager
+    }()
+    
     let window: UIWindow
     
     init(window: UIWindow) {
@@ -19,7 +26,7 @@ class AppCoordinator: Coordinator {
         let tabBarController = UITabBarController()
         
         let catalogueNavController = UINavigationController()
-        let catalogueCoordinator = CatalogueCoordinator(presenter: catalogueNavController)
+        let catalogueCoordinator = CatalogueCoordinator(presenter: catalogueNavController,catalogueDataManager: dataManager)
         addChildCoordinator(catalogueCoordinator)
         catalogueCoordinator.start()
         

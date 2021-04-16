@@ -13,13 +13,12 @@ import AVFoundation
 class ImageDetailViewController: UIViewController {
     
     let viewModel: ImageDetailViewModel
-    private var maskLayer = [CAShapeLayer]()
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: viewModel.imageNamed)
+        imageView.image = UIImage(data: viewModel.imageData)
         return imageView
     }()
     
@@ -27,6 +26,7 @@ class ImageDetailViewController: UIViewController {
         let labelExample = UILabel()
         labelExample.translatesAutoresizingMaskIntoConstraints = false
         labelExample.backgroundColor = .gray
+        labelExample.text = "Analizando..."
         return labelExample
     }()
     
@@ -92,7 +92,11 @@ class ImageDetailViewController: UIViewController {
                 let observationBounds = observation.boundingBox.applying(imageTransform)
                 graphicsContext?.addRect(observationBounds)
             }
-            self.labelExample.text = objectsName
+            if objectsName.count == 0 {
+                self.labelExample.text = "No se han encontrado objetos"
+            } else {
+                self.labelExample.text = objectsName
+            }
             graphicsContext?.drawPath(using: CGPathDrawingMode.fillStroke)
             graphicsContext?.restoreGState()
             
