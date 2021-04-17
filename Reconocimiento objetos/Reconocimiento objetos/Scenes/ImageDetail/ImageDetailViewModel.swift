@@ -9,16 +9,6 @@ import Vision
 import QuartzCore
 import UIKit
 
-struct Prediction {
-  let classIndex: Int
-  let score: Float
-  let rect: CGRect
-}
-
-struct Statistics {
-  var timeForFrame: Float
-  var fps: Float
-}
 
 protocol ImageDetailCoordinatorDelegate: class {
     
